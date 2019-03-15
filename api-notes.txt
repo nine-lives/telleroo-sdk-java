@@ -1,0 +1,9 @@
+Accounts List
+ - response documented as currency but is currency_code
+ - status not documented on response example
+Recipient Creation
+ - key is account but should be recipient
+ - status not document on response example
+ - sort_code isn't returned in the response but is documented in example as being returned
+Single Recipient 
+ - sort_code isn't returned in the response but is documented in example as being returned

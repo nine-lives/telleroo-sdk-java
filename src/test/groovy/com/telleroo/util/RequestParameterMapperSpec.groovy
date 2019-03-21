@@ -48,7 +48,7 @@ class RequestParameterMapperSpec extends Specification {
         String query = "https://api.twigloo.com/lead?obj=value&arr[]=one,two"
 
         when:
-        TestRequest request = mapper.read(new URL(query), TestRequest);
+        TestRequest request = mapper.read(new URL(query), TestRequest)
         Map<String, String> parameters = new RequestParameterMapper().writeToMap(request)
 
         then:
@@ -62,7 +62,7 @@ class RequestParameterMapperSpec extends Specification {
         String query = "https://api.twigloo.com/lead?obj=value&arr[]=one,two"
 
         when:
-        mapper.read(new URL(query), String);
+        mapper.read(new URL(query), String)
 
         then:
         IllegalStateException e = thrown(IllegalStateException)
@@ -74,7 +74,7 @@ class RequestParameterMapperSpec extends Specification {
         String query = "https://api.twigloo.com/lead?obj=value&arr[]=one%2Ctwo"
 
         when:
-        TestRequest request = mapper.read(new URL(query), TestRequest);
+        TestRequest request = mapper.read(new URL(query), TestRequest)
         request.obj = "new"
         request.arr = ["three", "four"]
         Map<String, String> parameters = new RequestParameterMapper().writeToMap(request)

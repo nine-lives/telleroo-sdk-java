@@ -2,8 +2,6 @@ package com.telleroo;
 
 import org.joda.time.DateTime;
 
-import java.math.BigDecimal;
-
 public class Transaction {
     private String id;
     private DateTime createdAt;
@@ -12,7 +10,7 @@ public class Transaction {
     private String transactionId;
     private String transactionType;
     private String currencyCode;
-    private BigDecimal amount;
+    private int amount;
     private String senderName;
     private String recipientId;
     private String status;
@@ -21,7 +19,7 @@ public class Transaction {
     private String reference;
     private String accountId;
     private String tag;
-    private BigDecimal endBalance;
+    private int endBalance;
     private String idempotentKey;
 
     public String getId() {
@@ -52,7 +50,7 @@ public class Transaction {
         return currencyCode;
     }
 
-    public BigDecimal getAmount() {
+    public int getAmount() {
         return amount;
     }
 
@@ -88,7 +86,7 @@ public class Transaction {
         return tag;
     }
 
-    public BigDecimal getEndBalance() {
+    public int getEndBalance() {
         return endBalance;
     }
 

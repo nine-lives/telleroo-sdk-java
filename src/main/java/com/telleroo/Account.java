@@ -1,15 +1,13 @@
 package com.telleroo;
 
-import java.math.BigDecimal;
-
 public class Account {
     private String id;
     private String name;
     private String status;
     private String currencyCode;
-    private BigDecimal balance;
-    private BigDecimal awaitingFundsBalance;
-    private BigDecimal awaitingApprovalBalance;
+    private int balance;
+    private int awaitingFundsBalance;
+    private int awaitingApprovalBalance;
     private String accountNo;
     private String sortCode;
     private String tag;
@@ -30,15 +28,15 @@ public class Account {
         return currencyCode;
     }
 
-    public BigDecimal getBalance() {
+    public int getBalance() {
         return balance;
     }
 
-    public BigDecimal getAwaitingFundsBalance() {
+    public int getAwaitingFundsBalance() {
         return awaitingFundsBalance;
     }
 
-    public BigDecimal getAwaitingApprovalBalance() {
+    public int getAwaitingApprovalBalance() {
         return awaitingApprovalBalance;
     }
 

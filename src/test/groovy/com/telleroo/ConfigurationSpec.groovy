@@ -4,12 +4,12 @@ import spock.lang.Specification
 
 class ConfigurationSpec extends Specification {
 
-    private String version;
+    private String version
 
     def setup() {
-        Properties versionProperties = new Properties();
-        versionProperties.load(Configuration.class.getClassLoader().getResourceAsStream("version.properties"));
-        version = versionProperties.getProperty("version");
+        Properties versionProperties = new Properties()
+        versionProperties.load(Configuration.class.getClassLoader().getResourceAsStream("version.properties"))
+        version = versionProperties.getProperty("version")
     }
 
     def "The defaults are the defaults"() {

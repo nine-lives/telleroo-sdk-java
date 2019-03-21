@@ -1,6 +1,6 @@
 package com.telleroo
 
-class RecipientSpec extends BaseIntegrationSpec {
+class RecipientIntegrationSpec extends BaseIntegrationSpec {
 
     def "I can create and fetch a recipient"() {
         given:
@@ -88,7 +88,7 @@ class RecipientSpec extends BaseIntegrationSpec {
         Recipient.builder()
             .withName("Integration Spec")
             .withAccountNo(String.valueOf(rnd.nextInt(89999999) + 10000000))
-            .withSortCode(String.valueOf(rnd.nextInt(899999) + 100000))
+            .withSortCode("123456")
             .withCurrencyCode("GBP")
             .withLegalType(rnd.nextInt() % 2 == 0? LegalType.PRIVATE : LegalType.BUSINESS)
             .build()

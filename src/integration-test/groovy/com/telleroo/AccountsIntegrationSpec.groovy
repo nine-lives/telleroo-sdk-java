@@ -1,10 +1,11 @@
 package com.telleroo
 
-class AccountsSpec extends BaseIntegrationSpec {
+class AccountsIntegrationSpec extends BaseIntegrationSpec {
 
     def "I can get a list of accounts"() {
         when:
         AccountsList response = telleroo.getAccounts()
+        println response.accounts[0].balance
 
         then:
         response.accounts.size() > 0

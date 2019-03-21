@@ -21,7 +21,7 @@ class WebhookSpec extends Specification {
        '''
 
         when:
-        Webhook<Company> entity = mapper.readValue(payload, new TypeReference<Webhook<Company>>() {});
+        Webhook<Company> entity = mapper.readValue(payload, new TypeReference<Webhook<Company>>() {})
 
         then:
         entity.webhook.companyId ==  '538633c5-d120-45fa-9ee5-1c6a348232'

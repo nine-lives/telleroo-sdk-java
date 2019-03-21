@@ -1,6 +1,9 @@
 package com.telleroo
 
-class UserSpec extends BaseIntegrationSpec {
+import spock.lang.Ignore
+
+@Ignore
+class UserIntegrationSpec extends BaseIntegrationSpec {
 
     def "I can create and fetch a user"() {
         given:

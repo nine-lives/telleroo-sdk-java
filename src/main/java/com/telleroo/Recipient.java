@@ -1,6 +1,6 @@
 package com.telleroo;
 
-public class Recipient {
+public final class Recipient {
     private String id;
     private String status;
     private String name;
@@ -14,7 +14,7 @@ public class Recipient {
     private Recipient() {
     }
 
-    public Recipient(Builder builder) {
+    private Recipient(Builder builder) {
         name = builder.name;
         currencyCode = builder.currencyCode;
         accountNo = builder.accountNo;
@@ -50,6 +50,14 @@ public class Recipient {
 
     public String getSortCode() {
         return sortCode;
+    }
+
+    public String getIban() {
+        return iban;
+    }
+
+    public String getBic() {
+        return bic;
     }
 
     public LegalType getLegalType() {

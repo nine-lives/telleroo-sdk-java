@@ -12,6 +12,10 @@ public enum WebhookType {
         this.value = value;
     }
 
+    public String getValue() {
+        return value;
+    }
+
     public static WebhookType getType(String value) {
         for (WebhookType type : values()) {
             if (type.value.equalsIgnoreCase(value)) {

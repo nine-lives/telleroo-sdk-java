@@ -2,7 +2,7 @@ package com.telleroo
 
 import org.joda.time.LocalDate
 
-class BankTransferSpec extends BaseIntegrationSpec {
+class BankTransferIntegrationSpec extends BaseIntegrationSpec {
 
     def "I can create an ad-hoc transfer"() {
         given:
@@ -40,7 +40,7 @@ class BankTransferSpec extends BaseIntegrationSpec {
     def "I can create a transfer with recipient id"() {
         given:
         Account account = telleroo.accounts.accounts[0]
-        Recipient recipient = telleroo.createRecipient(RecipientSpec.create())
+        Recipient recipient = telleroo.createRecipient(RecipientIntegrationSpec.create())
         BankTransfer.Builder builder = create(account.id, recipient.id)
         BankTransfer request = builder.build()
 
@@ -99,16 +99,27 @@ class BankTransferSpec extends BaseIntegrationSpec {
         }
 
         when:
-        TransactionList response = telleroo.getTransactions(new TransactionListRequest()
-                .withAccountId(account.id)
-                .withStartDate(LocalDate.now())
-                .withEndDate(LocalDate.now())
-                .withPage(1))
+        List<Transaction> list = []
+        int i = 1
+        while(true) {
+            TransactionList response = telleroo.getTransactions(new TransactionListRequest()
+                    .withAccountId(account.id)
+                    .withStartDate(LocalDate.now())
+                    .withEndDate(LocalDate.now())
+                    .withPage(i++))
+
+            if (response.transactions.isEmpty()) {
+                break;
+            }
+
+            list.addAll(response.transactions)
+        }
+
 
         then:
-        response.transactions.find { it && it?.id == transactions[0].id }
-        response.transactions.find { it && it?.id == transactions[1].id }
-        response.transactions.find { it && it?.id == transactions[2].id }
+        list.find { it && it?.id == transactions[0].id }
+        list.find { it && it?.id == transactions[1].id }
+        list.find { it && it?.id == transactions[2].id }
     }
 
     def "I can a 422 when I try to fetch an invalid id"() {
@@ -147,12 +158,10 @@ class BankTransferSpec extends BaseIntegrationSpec {
     static BankTransfer.Builder create(String accountId) {
         Random rnd = new Random();
         String accountNo = String.valueOf(rnd.nextInt(89999999) + 10000000);
-        String sortCode = String.valueOf(rnd.nextInt(899999) + 100000);
-        println "$accountNo $sortCode"
-        BankTransfer.withBankDetails("Integeration Spec", accountNo, sortCode, rnd.nextInt() % 2 == 0? LegalType.PRIVATE : LegalType.BUSINESS)
+        BankTransfer.withBankDetails("Integeration Spec", accountNo, "123456", rnd.nextInt() % 2 == 0? LegalType.PRIVATE : LegalType.BUSINESS)
             .withCurrencyCode("GBP")
             .withAccountId(accountId)
-            .withAmount(BigDecimal.valueOf(rnd.nextInt(8999)))
+            .withAmount(rnd.nextInt(8999))
             .withIdempotentKey(UUID.randomUUID().toString())
             .withReconciliation("recon-" + rnd.nextInt(1000))
             .withReference("ref-" + rnd.nextInt(1000))
@@ -164,7 +173,7 @@ class BankTransferSpec extends BaseIntegrationSpec {
         BankTransfer.withRecipientId(recipientId)
                 .withCurrencyCode("GBP")
                 .withAccountId(accountId)
-                .withAmount(BigDecimal.valueOf(rnd.nextInt(8999)))
+                .withAmount(rnd.nextInt(8999))
                 .withIdempotentKey(UUID.randomUUID().toString())
                 .withReconciliation("recon-" + rnd.nextInt(1000))
                 .withReference("ref-" + rnd.nextInt(1000))

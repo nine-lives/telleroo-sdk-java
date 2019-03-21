@@ -1,10 +1,8 @@
 package com.telleroo;
 
-import java.math.BigDecimal;
-
 public final class BankTransfer {
     private String accountId;
-    private BigDecimal amount;
+    private int amount;
     private String currencyCode;
     private String reference;
     private String tag;
@@ -41,7 +39,7 @@ public final class BankTransfer {
         return accountId;
     }
 
-    public BigDecimal getAmount() {
+    public int getAmount() {
         return amount;
     }
 
@@ -95,7 +93,7 @@ public final class BankTransfer {
 
     public static final class Builder {
         private String accountId;
-        private BigDecimal amount;
+        private int amount;
         private String currencyCode;
         private String reference;
         private String tag;
@@ -125,7 +123,7 @@ public final class BankTransfer {
             return this;
         }
 
-        public Builder withAmount(BigDecimal amount) {
+        public Builder withAmount(int amount) {
             this.amount = amount;
             return this;
         }

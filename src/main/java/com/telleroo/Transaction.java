@@ -9,6 +9,7 @@ public class Transaction {
     private DateTime createdAt;
     private DateTime updatedAt;
     private DateTime processedAt;
+    private String transactionId;
     private String transactionType;
     private String currencyCode;
     private BigDecimal amount;
@@ -37,6 +38,10 @@ public class Transaction {
 
     public DateTime getProcessedAt() {
         return processedAt;
+    }
+
+    public String getTransactionId() {
+        return transactionId;
     }
 
     public String getTransactionType() {

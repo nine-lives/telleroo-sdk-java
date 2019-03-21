@@ -129,7 +129,7 @@ that occur during either parsing the payload or in a listener will fire the erro
         @ResponseBody
         @RequestMapping(value = "/webhook", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = "text/plain")
         public String telleroo(HttpEntity<String> httpEntity, HttpServletResponse)  {
-            if (!WEBHOOK_TOKEN.equals(httpEntity.getHeaders().get("Authenticity-Token"))) {
+            if (!WEBHOOK_TOKEN.equals(httpEntity.getHeaders().getFirst("Authenticity-Token"))) {
                response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
             } else {
                 processor.process(httpEntity.getBody());

@@ -48,7 +48,7 @@ To create a recipient:
             .withSortCode("123456")
             .withCurrencyCode("GBP")
             .withLegalType(LegalType.PRIVATE)
-            .build())
+            .build());
 ```
 
 ## Execute a Bank Transfer
@@ -65,6 +65,7 @@ To create a recipient:
             .withReconciliation("recon-" + rnd.nextInt(1000))
             .withReference("ref-" + rnd.nextInt(1000))
             .withTag("integration-test")
+            .build());
 ```
 
 ## Webhooks

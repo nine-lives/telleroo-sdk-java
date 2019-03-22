@@ -59,12 +59,12 @@ To create a recipient:
         Transaction transaction = telleroo.transfer(BankTransfer
             .withBankDetails("Integeration Spec", "12345678", "123456", LegalType.PRIVATE)
             .withCurrencyCode("GBP")
-            .withAccountId(accountId)
-            .withAmount(rnd.nextInt(8999))
-            .withIdempotentKey(UUID.randomUUID().toString())
-            .withReconciliation("recon-" + rnd.nextInt(1000))
-            .withReference("ref-" + rnd.nextInt(1000))
-            .withTag("integration-test")
+            .withAccountId("my-account-id")
+            .withAmount(1200)
+            .withIdempotentKey("my-idempotent-key)
+            .withReconciliation("my-reconcilation-key")
+            .withReference("my-reference")
+            .withTag("my-tag")
             .build());
 ```
 

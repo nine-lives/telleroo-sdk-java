@@ -1,6 +1,5 @@
 package com.telleroo.client;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.telleroo.Configuration;
 import com.telleroo.TellerooError;
@@ -71,16 +70,6 @@ public class HttpClient {
         try {
             content = execute(request);
             return content == null ? null : objectMapper.readValue(content, responseType);
-        } catch (IOException e) {
-            throw throwError(content, e);
-        }
-    }
-
-    private <T> T executeAndTransform(HttpUriRequest request, TypeReference<T> responseType) {
-        String content = null;
-        try {
-            content = execute(request);
-            return objectMapper.readValue(content, responseType);
         } catch (IOException e) {
             throw throwError(content, e);
         }

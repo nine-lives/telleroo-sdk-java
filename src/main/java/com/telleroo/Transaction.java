@@ -97,7 +97,7 @@ public class Transaction {
     static class TransactionEntity {
         private Transaction transaction;
 
-        Transaction getTransaction() {
+        public Transaction getTransaction() {
             return transaction;
         }
     }

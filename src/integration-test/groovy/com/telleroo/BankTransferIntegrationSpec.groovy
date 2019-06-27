@@ -56,6 +56,7 @@ class BankTransferIntegrationSpec extends BaseIntegrationSpec {
         response.idempotentKey == request.idempotentKey
         response.tag == request.tag
         response.transactionType == 'Debit'
+        response.status != null
 
         when:
         Transaction transaction = telleroo.getTransaction(response.id)
@@ -68,6 +69,7 @@ class BankTransferIntegrationSpec extends BaseIntegrationSpec {
         transaction.amount == request.amount
         transaction.idempotentKey == request.idempotentKey
         transaction.tag == request.tag
+        transaction.status != null
 
         cleanup:
         if (recipient) {
@@ -109,7 +111,7 @@ class BankTransferIntegrationSpec extends BaseIntegrationSpec {
                     .withPage(i++))
 
             if (response.transactions.isEmpty()) {
-                break;
+                break
             }
 
             list.addAll(response.transactions)
@@ -137,7 +139,7 @@ class BankTransferIntegrationSpec extends BaseIntegrationSpec {
         Recipient response = telleroo.createRecipient(Recipient.builder()
                 .withName("Bob")
                 .withLegalType(LegalType.PRIVATE)
-                .build());
+                .build())
 
         then:
         TellerooServerException e = thrown(TellerooServerException)
@@ -156,8 +158,8 @@ class BankTransferIntegrationSpec extends BaseIntegrationSpec {
     }
 
     static BankTransfer.Builder create(String accountId) {
-        Random rnd = new Random();
-        String accountNo = String.valueOf(rnd.nextInt(89999999) + 10000000);
+        Random rnd = new Random()
+        String accountNo = String.valueOf(rnd.nextInt(89999999) + 10000000)
         BankTransfer.withBankDetails("Integeration Spec", accountNo, "123456", rnd.nextInt() % 2 == 0? LegalType.PRIVATE : LegalType.BUSINESS)
             .withCurrencyCode("GBP")
             .withAccountId(accountId)
@@ -169,7 +171,7 @@ class BankTransferIntegrationSpec extends BaseIntegrationSpec {
     }
 
     static BankTransfer.Builder create(String accountId, String recipientId) {
-        Random rnd = new Random();
+        Random rnd = new Random()
         BankTransfer.withRecipientId(recipientId)
                 .withCurrencyCode("GBP")
                 .withAccountId(accountId)

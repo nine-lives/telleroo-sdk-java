@@ -8,9 +8,11 @@ public class Account {
     private int balance;
     private int awaitingFundsBalance;
     private int awaitingApprovalBalance;
+    private String bankAccount;
     private String accountNo;
     private String sortCode;
     private String tag;
+    private boolean xeroFeed;
 
     public String getId() {
         return id;
@@ -50,6 +52,14 @@ public class Account {
 
     public String getTag() {
         return tag;
+    }
+
+    public String getBankAccount() {
+        return bankAccount;
+    }
+
+    public boolean hasXeroFeed() {
+        return xeroFeed;
     }
 
     static class AccountWrapper {

@@ -7,3 +7,8 @@ Recipient Creation
  - sort_code isn't returned in the response but is documented in example as being returned
 Single Recipient 
  - sort_code isn't returned in the response but is documented in example as being returned
+Webhooks
+ - transaction_id which is an alias to id
+ - nicer to structure as  webhook { type: "" , transaction: {}} and { type: "" , company: {}}
+ - nice if status and status info are sent in the failed and sent webhooks
+ - retrieving a transaction immediately during/after a webhook returns the correct payload but a 422 HTTP status code

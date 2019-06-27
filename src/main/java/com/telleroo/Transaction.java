@@ -13,7 +13,7 @@ public class Transaction {
     private int amount;
     private String senderName;
     private String recipientId;
-    private String status;
+    private TransactionState status;
     private String statusInfo;
     private String reconciliation;
     private String reference;
@@ -23,7 +23,7 @@ public class Transaction {
     private String idempotentKey;
 
     public String getId() {
-        return id;
+        return id == null ? transactionId : id;
     }
 
     public DateTime getCreatedAt() {
@@ -39,7 +39,7 @@ public class Transaction {
     }
 
     public String getTransactionId() {
-        return transactionId;
+        return transactionId == null ? id : transactionId;
     }
 
     public String getTransactionType() {
@@ -62,7 +62,7 @@ public class Transaction {
         return recipientId;
     }
 
-    public String getStatus() {
+    public TransactionState getStatus() {
         return status;
     }
 

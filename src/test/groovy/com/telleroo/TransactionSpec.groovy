@@ -43,7 +43,7 @@ class TransactionSpec extends Specification {
         entity.currencyCode == 'GBP'
         entity.amount == 100
         entity.recipientId == '442663c5-e230-32ef-8de8-1b7a459026'
-        entity.status == 'Preparing Payment'
+        entity.status == TransactionState.PreparingPayment
         entity.statusInfo == 'Creating payment request'
         entity.reconciliation == 'f9q3408rh3'
         entity.reference == 'Withdrawal Telleroo'

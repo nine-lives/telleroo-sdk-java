@@ -17,6 +17,8 @@ class AccountSpec extends Specification {
                   "name": "client account",
                   "currency_code": "GBP",
                   "balance": 500,
+                  "xero_feed": true,
+                  "bank_account": "231470********",
                   "awaiting_funds_balance": 640,
                   "awaiting_approval_balance": 100,
                   "account_no": "12345678",
@@ -34,6 +36,8 @@ class AccountSpec extends Specification {
         entity.name == 'client account'
         entity.currencyCode == 'GBP'
         entity.balance == 500
+        entity.hasXeroFeed()
+        entity.bankAccount == "231470********"
         entity.awaitingFundsBalance == 640
         entity.awaitingApprovalBalance == 100
         entity.accountNo == '12345678'

@@ -7,7 +7,7 @@ import spock.lang.Specification
 class TellerooErrorSpec extends Specification {
     private ObjectMapper mapper = ObjectMapperFactory.make()
 
-    def "I can covert a JSON payload with field errors to the entity"() {
+    def "I can convert a JSON payload with field errors to the entity"() {
         given:
         String payload = '''
                 {

@@ -145,11 +145,10 @@ class BankTransferIntegrationSpec extends BaseIntegrationSpec {
         TellerooServerException e = thrown(TellerooServerException)
         e.statusCode == 422
         e.error.message == "Invalid request, check field errors"
-        e.error.fieldErrors.size() == 2
+        e.error.fieldErrors.size() == 1
         e.error.fieldErrors.currency_code.size() == 2
         e.error.fieldErrors.currency_code[0] == "can't be blank"
         e.error.fieldErrors.currency_code[1] == "is not included in the list"
-        e.error.fieldErrors.name.size() == 1
 
         cleanup:
         if (response) {

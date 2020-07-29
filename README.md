@@ -20,7 +20,7 @@ in your projects as follows:
 
 ### Gradle/Grails
 ```
-    compile 'com.9ls:telleroo-java-sdk:1.0.3'
+    compile 'com.9ls:telleroo-java-sdk:1.0.4'
 ```
 
 ### Apache Maven
@@ -28,13 +28,13 @@ in your projects as follows:
     <dependency>
         <groupId>com.9ls</groupId>
         <artifactId>telleroo-java-sdk</artifactId>
-        <version>1.0.3</version>
+        <version>1.0.4</version>
     </dependency>
 ```
 
 ### Apache Ivy
 ```
-    <dependency org="com.9ls" name="telleroo-java-sdk" rev="1.0.3" />
+    <dependency org="com.9ls" name="telleroo-java-sdk" rev="1.0.4" />
 ```
 
 ## Create a Recipient
@@ -149,7 +149,7 @@ from the the api key all the other values have defaults.
         .withApiKey(apiKey)
         .withEndpoint("https://api.telleroo.com")
         .withMaxConnectionsPerRoute(20)
-        .withUserAgent("telleroo-sdk-java 1.0.3")
+        .withUserAgent("telleroo-sdk-java 1.0.4")
         .withBlockTillRateLimitReset(false)
         .withRequestsPerSecond(5)
         .withRequestBurstSize(20);

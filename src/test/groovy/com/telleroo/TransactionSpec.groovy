@@ -67,6 +67,8 @@ class TransactionSpec extends Specification {
                       "currency_code": "GBP",
                       "amount": "1000",
                       "sender_name": "Daryl Oates",
+                      "sender_account_no": "12345678",
+                      "sender_sort_code": "123456",
                       "status": "Preparing Payment",
                       "status_info": "Creating payment request",
                       "reconciliation": "3456yujk",
@@ -106,6 +108,8 @@ class TransactionSpec extends Specification {
         entity.transactions.size() == 2
         entity.transactions[0].id == '842963c5-e230-42ef-8de8-2b7a459025'
         entity.transactions[0].senderName == 'Daryl Oates'
+        entity.transactions[0].senderAccountNo == '12345678'
+        entity.transactions[0].senderSortCode == '123456'
         entity.transactions[1].id == '842963c5-e230-42ef-8de8-2b7a459026'
     }
 

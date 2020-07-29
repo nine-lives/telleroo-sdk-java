@@ -2,6 +2,7 @@ package com.telleroo;
 
 public class Account {
     private String id;
+    private String companyId;
     private String name;
     private String status;
     private String currencyCode;
@@ -16,6 +17,14 @@ public class Account {
 
     public String getId() {
         return id;
+    }
+
+    public String getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId;
     }
 
     public String getName() {

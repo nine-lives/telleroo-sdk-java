@@ -12,6 +12,8 @@ public class Transaction {
     private String currencyCode;
     private int amount;
     private String senderName;
+    private String senderAccountNo;
+    private String senderSortCode;
     private String recipientId;
     private TransactionState status;
     private String statusInfo;
@@ -56,6 +58,14 @@ public class Transaction {
 
     public String getSenderName() {
         return senderName;
+    }
+
+    public String getSenderAccountNo() {
+        return senderAccountNo;
+    }
+
+    public String getSenderSortCode() {
+        return senderSortCode;
     }
 
     public String getRecipientId() {

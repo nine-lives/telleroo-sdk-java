@@ -45,6 +45,11 @@ public class TransactionListRequest {
         return this;
     }
 
+    public TransactionListRequest withStatus(TransactionState status) {
+        this.status = status == null ? null : status.getSearchKey();
+        return this;
+    }
+
     public int getPage() {
         return page;
     }

@@ -15,8 +15,6 @@ project.ext {
             'class'      : 100
     ]
 
-    jacoco_codecy = true
-
     publish_name = 'telleroo-java-sdk'
     publish_description = 'Telleroo API Client Java SDK'
     publish_url = 'https://github.com/nine-lives/telleroo-sdk-java'

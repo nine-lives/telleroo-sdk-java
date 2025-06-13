@@ -1,7 +1,6 @@
 # Telleroo Client Java SDK
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.9ls/telleroo-java-sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.9ls/telleroo-java-sdk)
-[![Build Status](https://api.travis-ci.com/nine-lives/telleroo-sdk-java.png)](https://travis-ci.com/nine-lives/telleroo-sdk-java)
 [![Code Quality](https://api.codacy.com/project/badge/grade/d289b210b4b94dc69384622a5732bb05)](https://www.codacy.com/app/nine-lives/telleroo-sdk-java)
 [![Coverage](https://api.codacy.com/project/badge/coverage/d289b210b4b94dc69384622a5732bb05)](https://www.codacy.com/app/nine-lives/telleroo-sdk-java)
 
